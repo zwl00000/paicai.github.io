@@ -7,17 +7,24 @@
   <style>
     :root {
       --bg: #ffffff;
-      --text: #1f2328;
-      --muted: #59636e;
-      --line: #d8dee4;
-      --soft: #f6f8fa;
-      --accent: #0969da;
-      --accent-dark: #0756b3;
+      --text: #222222;
+      --muted: #5f6673;
+      --line: #d9dfe8;
+      --soft: #f6f8fb;
+      --soft-2: #eef4ff;
+      --primary: #1f5fbf;
+      --primary-dark: #16498f;
+      --accent: #f0a202;
       --card: #ffffff;
+      --shadow: 0 12px 28px rgba(20, 40, 80, 0.08);
     }
 
     * {
       box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -29,7 +36,7 @@
     }
 
     a {
-      color: var(--accent);
+      color: var(--primary);
       text-decoration: none;
     }
 
@@ -38,73 +45,173 @@
     }
 
     .container {
-      max-width: 1080px;
+      width: min(1120px, calc(100% - 40px));
       margin: 0 auto;
-      padding: 0 24px;
     }
 
-    header {
-      background: linear-gradient(180deg, #f6f8fa 0%, #ffffff 100%);
+    .topbar {
+      background: #10243f;
+      color: #ffffff;
+      font-size: 14px;
+      padding: 8px 0;
+    }
+
+    .topbar .container {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.96);
       border-bottom: 1px solid var(--line);
-      padding: 34px 0 24px;
+      backdrop-filter: blur(8px);
+    }
+
+    .nav-wrap {
+      min-height: 66px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--text);
+      white-space: nowrap;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    nav a {
+      color: #2f3744;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .hero {
+      background:
+        linear-gradient(120deg, rgba(31, 95, 191, 0.92), rgba(16, 36, 63, 0.95)),
+        radial-gradient(circle at top left, rgba(255, 255, 255, 0.25), transparent 32%);
+      color: #ffffff;
+      padding: 76px 0 68px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(280px, 0.8fr);
+      gap: 34px;
+      align-items: center;
     }
 
     .tag {
       display: inline-block;
-      margin-bottom: 14px;
-      padding: 5px 10px;
-      border: 1px solid var(--line);
+      margin-bottom: 16px;
+      padding: 6px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.35);
       border-radius: 999px;
-      color: var(--muted);
-      background: #fff;
+      color: #ffffff;
       font-size: 14px;
-      font-weight: 600;
+      font-weight: 700;
+      background: rgba(255, 255, 255, 0.12);
     }
 
     h1 {
       margin: 0;
-      max-width: 960px;
-      font-size: 38px;
-      line-height: 1.18;
-      letter-spacing: -0.03em;
+      max-width: 880px;
+      font-size: 44px;
+      line-height: 1.15;
+      letter-spacing: -0.035em;
     }
 
     .subtitle {
-      margin-top: 14px;
-      max-width: 900px;
-      color: var(--muted);
-      font-size: 18px;
+      max-width: 840px;
+      margin: 18px 0 0;
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 19px;
     }
 
-    nav {
-      margin-top: 24px;
+    .hero-card {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card h2 {
+      margin: 0 0 12px;
+      padding: 0;
+      border: 0;
+      color: #ffffff;
+      font-size: 20px;
+    }
+
+    .hero-card p {
+      margin: 0 0 10px;
+      color: rgba(255, 255, 255, 0.92);
+    }
+
+    .button-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px 18px;
+      gap: 12px;
+      margin-top: 24px;
     }
 
-    nav a {
-      color: var(--accent);
-      font-weight: 700;
-      font-size: 15px;
+    .button {
+      display: inline-block;
+      padding: 11px 16px;
+      border-radius: 9px;
+      background: #ffffff;
+      color: var(--primary-dark);
+      font-weight: 800;
+      border: 1px solid rgba(255, 255, 255, 0.75);
+    }
+
+    .button:hover {
+      text-decoration: none;
+      background: #f2f5fb;
+    }
+
+    .button.secondary {
+      background: transparent;
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+    }
+
+    .button.secondary:hover {
+      background: rgba(255, 255, 255, 0.12);
     }
 
     main {
-      padding: 42px 0 56px;
+      padding: 48px 0 64px;
     }
 
     section {
-      margin-bottom: 46px;
-      scroll-margin-top: 20px;
+      margin-bottom: 54px;
+      scroll-margin-top: 86px;
     }
 
     h2 {
-      margin: 0 0 18px;
-      padding-bottom: 10px;
+      margin: 0 0 20px;
+      padding-bottom: 12px;
       border-bottom: 1px solid var(--line);
-      font-size: 26px;
+      font-size: 28px;
       line-height: 1.3;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.025em;
     }
 
     h3 {
@@ -126,46 +233,103 @@
       margin-bottom: 7px;
     }
 
+    .lead {
+      color: var(--muted);
+      font-size: 17px;
+    }
+
     .grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 18px;
     }
 
-    .card {
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      padding: 20px;
-      background: var(--card);
+    .two-col {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 22px;
+      align-items: start;
     }
 
-    .notice {
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 22px;
+      background: var(--card);
+      box-shadow: 0 8px 22px rgba(30, 50, 80, 0.04);
+    }
+
+    .soft-card {
+      border: 1px solid #cfe0ff;
+      background: var(--soft-2);
+    }
+
+    .date-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    .date-list li {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      border-bottom: 1px solid rgba(31, 95, 191, 0.15);
+      padding: 10px 0;
+      margin: 0;
+    }
+
+    .date-list li:last-child {
+      border-bottom: none;
+    }
+
+    .date-list strong {
+      color: #15223a;
+    }
+
+    .date-list span {
+      color: var(--muted);
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .news-item {
       border-left: 4px solid var(--accent);
       background: var(--soft);
-      padding: 16px 18px;
+      padding: 13px 16px;
       border-radius: 8px;
+    }
+
+    .topic-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .topic-list .card {
+      height: 100%;
     }
 
     .schedule {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 14px;
-      overflow: hidden;
+      margin-top: 16px;
       border: 1px solid var(--line);
-      border-radius: 10px;
+      border-radius: 12px;
+      overflow: hidden;
     }
 
     .schedule th,
     .schedule td {
       border-bottom: 1px solid var(--line);
-      padding: 12px 14px;
+      padding: 13px 15px;
       text-align: left;
       vertical-align: top;
     }
 
     .schedule th {
       background: var(--soft);
-      font-weight: 700;
+      font-weight: 800;
     }
 
     .schedule tr:last-child td {
@@ -173,67 +337,84 @@
     }
 
     .person {
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
 
     .person strong {
       display: block;
-      font-size: 17px;
+      font-size: 18px;
       margin-bottom: 2px;
     }
 
     .meta {
       color: var(--muted);
       font-size: 14px;
-      margin-bottom: 7px;
+      margin-bottom: 8px;
     }
 
-    .button-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 20px;
-    }
-
-    .button {
-      display: inline-block;
-      padding: 10px 14px;
-      border-radius: 8px;
-      background: var(--accent);
-      color: #fff;
-      font-weight: 700;
-    }
-
-    .button:hover {
-      background: var(--accent-dark);
-      text-decoration: none;
-    }
-
-    .button.secondary {
-      background: #fff;
-      color: var(--accent);
-      border: 1px solid var(--line);
-    }
-
-    .button.secondary:hover {
-      background: var(--soft);
-    }
-
-    footer {
+    .footer {
       border-top: 1px solid var(--line);
-      padding: 24px 0;
+      padding: 26px 0;
       color: var(--muted);
       font-size: 14px;
       background: var(--soft);
     }
 
-    @media (max-width: 800px) {
-      h1 {
-        font-size: 30px;
+    .footer .container {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .two-col,
+      .grid,
+      .topic-list {
+        grid-template-columns: 1fr;
       }
 
-      .grid {
-        grid-template-columns: 1fr;
+      h1 {
+        font-size: 34px;
+      }
+
+      .nav-wrap {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 16px 0;
+      }
+
+      nav {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .container {
+        width: min(100% - 28px, 1120px);
+      }
+
+      .hero {
+        padding: 52px 0;
+      }
+
+      h1 {
+        font-size: 29px;
+      }
+
+      .subtitle {
+        font-size: 17px;
+      }
+
+      .date-list li {
+        display: block;
+      }
+
+      .date-list span {
+        display: block;
+        text-align: left;
+        margin-top: 2px;
       }
 
       .schedule {
@@ -244,53 +425,104 @@
 </head>
 
 <body>
-  <header>
+  <div class="topbar">
     <div class="container">
-      <div class="tag">PRICAI 2026 Workshop · OWRML'26</div>
-      <h1>Workshop on Open-World Robust Machine Learning</h1>
-      <p class="subtitle">
-        Robust learning under imperfect supervision, distribution shift, openness,
-        and lifelong adaptation in dynamic real-world environments.
-      </p>
-      <div class="button-row">
-        <a class="button" href="#submission">Submission</a>
-        <a class="button secondary" href="#program">Tentative Program</a>
-      </div>
-      <nav>
+      <span>Collocated with PRICAI 2026</span>
+      <span>Workshop website for OWRML'26</span>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#home">OWRML'26</a>
+      <nav aria-label="Main navigation">
+        <a href="#home">Home</a>
         <a href="#overview">Overview</a>
-        <a href="#scope">Objectives & Scope</a>
-        <a href="#topics">Topics</a>
+        <a href="#cfp">Call for Papers</a>
         <a href="#program">Program</a>
-        <a href="#committee">Organizing Committee</a>
-        <a href="#promotion">Attendance & Promotion</a>
+        <a href="#organizers">Organizers</a>
+        <a href="#submission">Submission</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
   </header>
 
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+      <div>
+        <div class="tag">PRICAI 2026 Workshop</div>
+        <h1>Workshop on Open-World Robust Machine Learning</h1>
+        <p class="subtitle">
+          Robust learning under imperfect supervision, distribution shift,
+          openness, and lifelong adaptation in dynamic real-world environments.
+        </p>
+        <div class="button-row">
+          <a class="button" href="#cfp">View Call for Papers</a>
+          <a class="button secondary" href="#submission">Submission Information</a>
+        </div>
+      </div>
+
+      <aside class="hero-card" aria-label="Workshop information">
+        <h2>Key Information</h2>
+        <p><strong>Format:</strong> Half-day workshop</p>
+        <p><strong>Length:</strong> Approximately 4 hours</p>
+        <p><strong>Venue:</strong> PRICAI 2026, TBA</p>
+        <p><strong>Submission:</strong> EasyChair, TBA</p>
+      </aside>
+    </div>
+  </section>
+
   <main class="container">
     <section id="overview">
-      <h2>Overview</h2>
-      <p>
-        Modern machine learning systems are predominantly trained and evaluated
-        under closed-world assumptions: i.i.d. data distributions, fixed label
-        spaces, and abundant clean annotations. Real-world deployments, however,
-        operate in open, dynamic, and resource-constrained environments where
-        models must handle label noise, distribution shifts, unseen concepts,
-        and evolving tasks.
-      </p>
-      <p>
-        OWRML'26 focuses on principled algorithms for robust learning in
-        open-world scenarios, bridging theoretical guarantees with practical
-        deployment needs. The workshop aligns with PRICAI 2026's emphasis on
-        trustworthy, generalizable, and deployment-ready AI, and aims to foster
-        cross-disciplinary dialogue on how to build models that remain reliable
-        when the world refuses to stay closed.
-      </p>
+      <h2>Welcome to OWRML'26</h2>
+      <div class="two-col">
+        <div>
+          <p class="lead">
+            Modern machine learning systems are predominantly trained and
+            evaluated under closed-world assumptions: i.i.d. data distributions,
+            fixed label spaces, and abundant clean annotations.
+          </p>
+          <p>
+            Real-world deployments, however, operate in open, dynamic, and
+            resource-constrained environments where models must handle label
+            noise, distribution shifts, unseen concepts, and evolving tasks.
+            OWRML'26 focuses on principled algorithms for robust learning in
+            open-world scenarios, bridging theoretical guarantees with practical
+            deployment needs.
+          </p>
+          <p>
+            The workshop aligns with PRICAI 2026's emphasis on trustworthy,
+            generalizable, and deployment-ready AI. It aims to foster
+            cross-disciplinary dialogue on how to build models that remain
+            reliable when the world refuses to stay closed.
+          </p>
+        </div>
+
+        <aside class="card soft-card">
+          <h3>News</h3>
+          <div class="news-item">
+            <strong>Website released.</strong><br />
+            More information on dates, submission links, keynote speakers, and
+            accepted papers will be announced soon.
+          </div>
+        </aside>
+      </div>
     </section>
 
-    <section id="scope">
-      <h2>Objectives & Scope</h2>
+    <section id="dates">
+      <h2>Important Dates</h2>
+      <div class="card">
+        <ul class="date-list">
+          <li><strong>Paper Submission Deadline</strong><span>To be announced</span></li>
+          <li><strong>Acceptance Notification</strong><span>To be announced</span></li>
+          <li><strong>Camera-ready Deadline</strong><span>To be announced</span></li>
+          <li><strong>Workshop Date</strong><span>To be announced</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="objectives">
+      <h2>Objectives and Scope</h2>
       <div class="grid">
         <div class="card">
           <h3>Unify Research Streams</h3>
@@ -307,7 +539,7 @@
           </p>
         </div>
         <div class="card">
-          <h3>Bridge Theory & Practice</h3>
+          <h3>Bridge Theory and Practice</h3>
           <p>
             Connect theoretical guarantees with real-world case studies,
             industry challenges, and open research roadmaps.
@@ -316,55 +548,60 @@
       </div>
     </section>
 
-    <section id="topics">
-      <h2>Topics of Interest</h2>
-      <div class="card">
-        <h3>Learning from Imperfect Supervision</h3>
-        <ul>
-          <li>Weakly supervised learning</li>
-          <li>Noisy-label, partial-label, and complementary-label learning</li>
-          <li>Crowdsourcing, active learning, and semi-supervised learning</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Robustness to Distribution Shift & Openness</h3>
-        <ul>
-          <li>Out-of-distribution learning and open-set recognition</li>
-          <li>Domain generalization, domain adaptation, and test-time adaptation</li>
-          <li>Novel class discovery and robust representation learning</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Data-Efficient & Lifelong Adaptation</h3>
-        <ul>
-          <li>Continual and lifelong learning</li>
-          <li>Few-shot and zero-shot learning</li>
-          <li>Concept drift, resource constraints, and deployment-ready adaptation</li>
-        </ul>
-      </div>
-      <p>
-        The workshop especially welcomes work on algorithmic robustness,
-        theoretical convergence or identifiability guarantees, scalable
-        implementations, fairness, calibration, and uncertainty quantification.
+    <section id="cfp">
+      <h2>Call for Papers</h2>
+      <p class="lead">
+        We invite submissions on robust, adaptive, and trustworthy machine
+        learning methods for open-world environments. Topics include, but are not
+        limited to, the following areas.
       </p>
-    </section>
 
-    <section id="target-audience">
-      <h2>Target Audience</h2>
-      <p>
-        The workshop targets researchers in machine learning and deep learning,
-        AI engineers deploying models in dynamic or noisy domains such as
-        autonomous systems, healthcare, finance, NLP, and computer vision, as
-        well as PhD students and postdoctoral scholars interested in robust and
-        adaptive AI.
-      </p>
+      <div class="topic-list">
+        <div class="card">
+          <h3>Learning from Imperfect Supervision</h3>
+          <ul>
+            <li>Weakly supervised learning</li>
+            <li>Noisy-label, partial-label, and complementary-label learning</li>
+            <li>Crowdsourcing, active learning, and semi-supervised learning</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Robustness to Distribution Shift and Openness</h3>
+          <ul>
+            <li>Out-of-distribution learning and open-set recognition</li>
+            <li>Domain generalization and domain adaptation</li>
+            <li>Novel class discovery and test-time adaptation</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Data-Efficient and Lifelong Adaptation</h3>
+          <ul>
+            <li>Continual and lifelong learning</li>
+            <li>Few-shot and zero-shot learning</li>
+            <li>Concept drift and resource-constrained adaptation</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Trustworthy Open-World AI</h3>
+          <ul>
+            <li>Fairness, calibration, and uncertainty quantification</li>
+            <li>Theoretical convergence and identifiability guarantees</li>
+            <li>Scalable implementations and deployment-ready evaluation</li>
+          </ul>
+        </div>
+      </div>
     </section>
 
     <section id="program">
       <h2>Format and Tentative Program</h2>
-      <div class="notice">
-        <strong>Desired length:</strong> Half-day workshop, approximately 4 hours.
-      </div>
+      <p>
+        OWRML'26 is planned as a half-day workshop with invited talks,
+        contributed paper presentations, networking, and a panel discussion.
+      </p>
+
       <table class="schedule">
         <thead>
           <tr>
@@ -379,11 +616,11 @@
           </tr>
           <tr>
             <td>08:45–09:30</td>
-            <td>Invited keynote: Robust Representation & Adaptation in Open Environments (TBA)</td>
+            <td>Invited keynote: Robust Representation and Adaptation in Open Environments (TBA)</td>
           </tr>
           <tr>
             <td>09:30–10:15</td>
-            <td>Contributed Paper Session I, 2–3 talks with Q&A</td>
+            <td>Contributed Paper Session I, 2–3 talks with Q&amp;A</td>
           </tr>
           <tr>
             <td>10:15–10:30</td>
@@ -391,7 +628,7 @@
           </tr>
           <tr>
             <td>10:30–11:45</td>
-            <td>Contributed Paper Session II, 3–4 talks with Q&A</td>
+            <td>Contributed Paper Session II, 3–4 talks with Q&amp;A</td>
           </tr>
           <tr>
             <td>11:45–12:20</td>
@@ -403,15 +640,16 @@
           </tr>
         </tbody>
       </table>
+
       <p>
-        Audience participation will be encouraged through Q&A after each
+        Audience participation will be encouraged through Q&amp;A after each
         session, live polls during panel discussions, and a dedicated Slack or
         Discord channel for continuous interaction throughout the workshop.
       </p>
     </section>
 
     <section id="submission">
-      <h2>Submission</h2>
+      <h2>Paper Submission</h2>
       <div class="card">
         <p>
           Papers should be submitted through EasyChair. The submission link will
@@ -420,13 +658,24 @@
         <ul>
           <li><strong>Submission system:</strong> EasyChair, TBA</li>
           <li><strong>Review process:</strong> Dual-anonymized peer review</li>
-          <li><strong>Review standard:</strong> At least 2 reviewers per paper</li>
+          <li><strong>Review standard:</strong> At least two reviewers per paper</li>
           <li><strong>Acceptance criteria:</strong> Relevance, technical quality, novelty, clarity, and potential impact</li>
         </ul>
       </div>
     </section>
 
-    <section id="committee">
+    <section id="audience">
+      <h2>Target Audience</h2>
+      <p>
+        The workshop targets researchers in machine learning and deep learning,
+        AI engineers deploying models in dynamic or noisy domains such as
+        autonomous systems, healthcare, finance, NLP, and computer vision, as
+        well as PhD students and postdoctoral scholars interested in robust and
+        adaptive AI.
+      </p>
+    </section>
+
+    <section id="organizers">
       <h2>Organizing Committee</h2>
       <div class="card person">
         <strong>Shao-Yuan Li</strong>
@@ -437,9 +686,10 @@
           domain adaptation, and continual learning. She has published 40+ papers
           in top venues including ICML, NeurIPS, CVPR, AAAI, and IEEE TKDE, with
           900+ citations and an h-index of 12. She received the PRICAI 2018 Best
-          Paper Award and the 2023 Jiangsu Science & Technology Award.
+          Paper Award and the 2023 Jiangsu Science &amp; Technology Award.
         </p>
       </div>
+
       <div class="card person">
         <strong>Chuanxing Geng</strong>
         <div class="meta">Associate Researcher, Nanjing University of Aeronautics and Astronautics; Xiangjiang Scholar</div>
@@ -452,6 +702,7 @@
           Dissertation Award in 2022 and Jiangsu Natural Science Award in 2024.
         </p>
       </div>
+
       <div class="card person">
         <strong>Sheng-Jun Huang</strong>
         <div class="meta">Professor, Nanjing University of Aeronautics and Astronautics</div>
@@ -496,9 +747,6 @@
 
     <section id="contact">
       <h2>Contact</h2>
-      <p>
-        For questions about the workshop, please contact:
-      </p>
       <div class="card">
         <p>
           <strong>Shao-Yuan Li</strong><br />
@@ -509,9 +757,10 @@
     </section>
   </main>
 
-  <footer>
+  <footer class="footer">
     <div class="container">
-      © 2026 Workshop on Open-World Robust Machine Learning. Hosted on GitHub Pages.
+      <span>© 2026 Workshop on Open-World Robust Machine Learning.</span>
+      <span>Hosted on GitHub Pages.</span>
     </div>
   </footer>
 </body>
