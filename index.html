@@ -3,85 +3,242 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PAICAI 2026 Workshop</title>
+  <title>OWRML'26 | PRICAI 2026 Workshop</title>
   <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1f2328;
+      --muted: #59636e;
+      --line: #d8dee4;
+      --soft: #f6f8fa;
+      --accent: #0969da;
+      --accent-dark: #0756b3;
+      --card: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      color: #222;
-      background: #fff;
-      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.65;
     }
 
-    header {
-      background: #f6f8fa;
-      border-bottom: 1px solid #d8dee4;
-      padding: 28px 0;
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
     }
 
     .container {
-      max-width: 980px;
+      max-width: 1080px;
       margin: 0 auto;
       padding: 0 24px;
     }
 
-    h1 {
-      margin: 0;
-      font-size: 34px;
+    header {
+      background: linear-gradient(180deg, #f6f8fa 0%, #ffffff 100%);
+      border-bottom: 1px solid var(--line);
+      padding: 34px 0 24px;
     }
 
-    .subtitle {
-      margin-top: 8px;
-      color: #57606a;
-      font-size: 17px;
-    }
-
-    nav {
-      margin-top: 20px;
-    }
-
-    nav a {
-      margin-right: 18px;
-      color: #0969da;
-      text-decoration: none;
+    .tag {
+      display: inline-block;
+      margin-bottom: 14px;
+      padding: 5px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      background: #fff;
+      font-size: 14px;
       font-weight: 600;
     }
 
-    nav a:hover {
-      text-decoration: underline;
+    h1 {
+      margin: 0;
+      max-width: 960px;
+      font-size: 38px;
+      line-height: 1.18;
+      letter-spacing: -0.03em;
+    }
+
+    .subtitle {
+      margin-top: 14px;
+      max-width: 900px;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    nav {
+      margin-top: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+    }
+
+    nav a {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 15px;
     }
 
     main {
-      padding: 40px 0;
+      padding: 42px 0 56px;
     }
 
     section {
-      margin-bottom: 42px;
+      margin-bottom: 46px;
+      scroll-margin-top: 20px;
     }
 
     h2 {
-      font-size: 26px;
-      border-bottom: 1px solid #d8dee4;
+      margin: 0 0 18px;
       padding-bottom: 10px;
+      border-bottom: 1px solid var(--line);
+      font-size: 26px;
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+    }
+
+    h3 {
+      margin: 0 0 10px;
+      font-size: 20px;
+      line-height: 1.35;
+    }
+
+    p {
+      margin: 0 0 14px;
+    }
+
+    ul, ol {
+      margin-top: 8px;
+      padding-left: 22px;
+    }
+
+    li {
+      margin-bottom: 7px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
     }
 
     .card {
-      border: 1px solid #d8dee4;
-      border-radius: 10px;
-      padding: 22px;
-      margin-top: 18px;
-      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 20px;
+      background: var(--card);
     }
 
-    .important-dates li {
-      margin-bottom: 8px;
+    .notice {
+      border-left: 4px solid var(--accent);
+      background: var(--soft);
+      padding: 16px 18px;
+      border-radius: 8px;
+    }
+
+    .schedule {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 14px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+    }
+
+    .schedule th,
+    .schedule td {
+      border-bottom: 1px solid var(--line);
+      padding: 12px 14px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .schedule th {
+      background: var(--soft);
+      font-weight: 700;
+    }
+
+    .schedule tr:last-child td {
+      border-bottom: none;
+    }
+
+    .person {
+      margin-bottom: 18px;
+    }
+
+    .person strong {
+      display: block;
+      font-size: 17px;
+      margin-bottom: 2px;
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 7px;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 10px 14px;
+      border-radius: 8px;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .button:hover {
+      background: var(--accent-dark);
+      text-decoration: none;
+    }
+
+    .button.secondary {
+      background: #fff;
+      color: var(--accent);
+      border: 1px solid var(--line);
+    }
+
+    .button.secondary:hover {
+      background: var(--soft);
     }
 
     footer {
-      border-top: 1px solid #d8dee4;
-      color: #57606a;
+      border-top: 1px solid var(--line);
       padding: 24px 0;
+      color: var(--muted);
       font-size: 14px;
+      background: var(--soft);
+    }
+
+    @media (max-width: 800px) {
+      h1 {
+        font-size: 30px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .schedule {
+        font-size: 14px;
+      }
     }
   </style>
 </head>
@@ -89,16 +246,23 @@
 <body>
   <header>
     <div class="container">
-      <h1>PAICAI 2026 Workshop</h1>
-      <div class="subtitle">
-        Workshop on Practical AI, Causal AI, and Intelligent Applications
+      <div class="tag">PRICAI 2026 Workshop · OWRML'26</div>
+      <h1>Workshop on Open-World Robust Machine Learning</h1>
+      <p class="subtitle">
+        Robust learning under imperfect supervision, distribution shift, openness,
+        and lifelong adaptation in dynamic real-world environments.
+      </p>
+      <div class="button-row">
+        <a class="button" href="#submission">Submission</a>
+        <a class="button secondary" href="#program">Tentative Program</a>
       </div>
-
       <nav>
         <a href="#overview">Overview</a>
+        <a href="#scope">Objectives & Scope</a>
         <a href="#topics">Topics</a>
-        <a href="#dates">Important Dates</a>
-        <a href="#organizers">Organizers</a>
+        <a href="#program">Program</a>
+        <a href="#committee">Organizing Committee</a>
+        <a href="#promotion">Attendance & Promotion</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -108,73 +272,224 @@
     <section id="overview">
       <h2>Overview</h2>
       <p>
-        Welcome to the PAICAI Workshop website. This workshop aims to bring
-        together researchers, students, and practitioners interested in
-        artificial intelligence, causal reasoning, machine learning, and
-        real-world intelligent systems.
+        Modern machine learning systems are predominantly trained and evaluated
+        under closed-world assumptions: i.i.d. data distributions, fixed label
+        spaces, and abundant clean annotations. Real-world deployments, however,
+        operate in open, dynamic, and resource-constrained environments where
+        models must handle label noise, distribution shifts, unseen concepts,
+        and evolving tasks.
       </p>
       <p>
-        The workshop will feature invited talks, paper presentations, posters,
-        and open discussions on emerging AI research and applications.
+        OWRML'26 focuses on principled algorithms for robust learning in
+        open-world scenarios, bridging theoretical guarantees with practical
+        deployment needs. The workshop aligns with PRICAI 2026's emphasis on
+        trustworthy, generalizable, and deployment-ready AI, and aims to foster
+        cross-disciplinary dialogue on how to build models that remain reliable
+        when the world refuses to stay closed.
       </p>
+    </section>
+
+    <section id="scope">
+      <h2>Objectives & Scope</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Unify Research Streams</h3>
+          <p>
+            Bring together fragmented research on robust learning under
+            supervision scarcity, distribution shift, and environmental dynamics.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Showcase New Algorithms</h3>
+          <p>
+            Highlight methods that jointly optimize robustness, adaptability,
+            and data efficiency in open-world environments.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Bridge Theory & Practice</h3>
+          <p>
+            Connect theoretical guarantees with real-world case studies,
+            industry challenges, and open research roadmaps.
+          </p>
+        </div>
+      </div>
     </section>
 
     <section id="topics">
       <h2>Topics of Interest</h2>
       <div class="card">
+        <h3>Learning from Imperfect Supervision</h3>
         <ul>
-          <li>Artificial Intelligence and Machine Learning</li>
-          <li>Causal Inference and Causal Representation Learning</li>
-          <li>Large Language Models and AI Agents</li>
-          <li>Computer Vision and Multimodal Learning</li>
-          <li>Trustworthy, Explainable, and Responsible AI</li>
-          <li>AI for Healthcare, Education, Science, and Industry</li>
-          <li>Benchmarking, Evaluation, and Real-world Deployment</li>
+          <li>Weakly supervised learning</li>
+          <li>Noisy-label, partial-label, and complementary-label learning</li>
+          <li>Crowdsourcing, active learning, and semi-supervised learning</li>
         </ul>
       </div>
+      <div class="card">
+        <h3>Robustness to Distribution Shift & Openness</h3>
+        <ul>
+          <li>Out-of-distribution learning and open-set recognition</li>
+          <li>Domain generalization, domain adaptation, and test-time adaptation</li>
+          <li>Novel class discovery and robust representation learning</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Data-Efficient & Lifelong Adaptation</h3>
+        <ul>
+          <li>Continual and lifelong learning</li>
+          <li>Few-shot and zero-shot learning</li>
+          <li>Concept drift, resource constraints, and deployment-ready adaptation</li>
+        </ul>
+      </div>
+      <p>
+        The workshop especially welcomes work on algorithmic robustness,
+        theoretical convergence or identifiability guarantees, scalable
+        implementations, fairness, calibration, and uncertainty quantification.
+      </p>
     </section>
 
-    <section id="dates">
-      <h2>Important Dates</h2>
-      <div class="card">
-        <ul class="important-dates">
-          <li><strong>Submission Deadline:</strong> To be announced</li>
-          <li><strong>Notification:</strong> To be announced</li>
-          <li><strong>Camera-ready Deadline:</strong> To be announced</li>
-          <li><strong>Workshop Date:</strong> To be announced</li>
-        </ul>
-      </div>
+    <section id="target-audience">
+      <h2>Target Audience</h2>
+      <p>
+        The workshop targets researchers in machine learning and deep learning,
+        AI engineers deploying models in dynamic or noisy domains such as
+        autonomous systems, healthcare, finance, NLP, and computer vision, as
+        well as PhD students and postdoctoral scholars interested in robust and
+        adaptive AI.
+      </p>
     </section>
 
     <section id="program">
-      <h2>Program</h2>
+      <h2>Format and Tentative Program</h2>
+      <div class="notice">
+        <strong>Desired length:</strong> Half-day workshop, approximately 4 hours.
+      </div>
+      <table class="schedule">
+        <thead>
+          <tr>
+            <th>Time</th>
+            <th>Activity</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>08:30–08:45</td>
+            <td>Opening remarks and scope introduction</td>
+          </tr>
+          <tr>
+            <td>08:45–09:30</td>
+            <td>Invited keynote: Robust Representation & Adaptation in Open Environments (TBA)</td>
+          </tr>
+          <tr>
+            <td>09:30–10:15</td>
+            <td>Contributed Paper Session I, 2–3 talks with Q&A</td>
+          </tr>
+          <tr>
+            <td>10:15–10:30</td>
+            <td>Coffee break and networking</td>
+          </tr>
+          <tr>
+            <td>10:30–11:45</td>
+            <td>Contributed Paper Session II, 3–4 talks with Q&A</td>
+          </tr>
+          <tr>
+            <td>11:45–12:20</td>
+            <td>Panel and open discussion: Benchmarks, Deployment Pitfalls, and Standardizing Open-World Evaluation</td>
+          </tr>
+          <tr>
+            <td>12:20–12:30</td>
+            <td>Closing remarks</td>
+          </tr>
+        </tbody>
+      </table>
       <p>
-        The detailed workshop program will be available soon.
+        Audience participation will be encouraged through Q&A after each
+        session, live polls during panel discussions, and a dedicated Slack or
+        Discord channel for continuous interaction throughout the workshop.
       </p>
+    </section>
 
+    <section id="submission">
+      <h2>Submission</h2>
       <div class="card">
-        <h3>Tentative Schedule</h3>
+        <p>
+          Papers should be submitted through EasyChair. The submission link will
+          be announced soon.
+        </p>
         <ul>
-          <li>Opening Remarks</li>
-          <li>Keynote Talk</li>
-          <li>Paper Presentations</li>
-          <li>Poster Session</li>
-          <li>Panel Discussion</li>
-          <li>Closing Remarks</li>
+          <li><strong>Submission system:</strong> EasyChair, TBA</li>
+          <li><strong>Review process:</strong> Dual-anonymized peer review</li>
+          <li><strong>Review standard:</strong> At least 2 reviewers per paper</li>
+          <li><strong>Acceptance criteria:</strong> Relevance, technical quality, novelty, clarity, and potential impact</li>
         </ul>
       </div>
     </section>
 
-    <section id="organizers">
-      <h2>Organizers</h2>
-      <div class="card">
+    <section id="committee">
+      <h2>Organizing Committee</h2>
+      <div class="card person">
+        <strong>Shao-Yuan Li</strong>
+        <div class="meta">Associate Professor, Nanjing University of Aeronautics and Astronautics</div>
         <p>
-          Organizer names and affiliations will be updated soon.
+          Shao-Yuan Li specializes in robust machine learning for open
+          environments. Her research focuses on weakly supervised learning,
+          domain adaptation, and continual learning. She has published 40+ papers
+          in top venues including ICML, NeurIPS, CVPR, AAAI, and IEEE TKDE, with
+          900+ citations and an h-index of 12. She received the PRICAI 2018 Best
+          Paper Award and the 2023 Jiangsu Science & Technology Award.
         </p>
+      </div>
+      <div class="card person">
+        <strong>Chuanxing Geng</strong>
+        <div class="meta">Associate Researcher, Nanjing University of Aeronautics and Astronautics; Xiangjiang Scholar</div>
+        <p>
+          Chuanxing Geng's research focuses on open-set recognition, zero-shot
+          learning, and contrastive representation. He is the lead author of a
+          highly cited IEEE TPAMI survey on open-set recognition, with 1,600+
+          citations. His publications appear in TPAMI, TKDE, AAAI, and NeurIPS.
+          He has an h-index of 11 and received the Jiangsu Outstanding Doctoral
+          Dissertation Award in 2022 and Jiangsu Natural Science Award in 2024.
+        </p>
+      </div>
+      <div class="card person">
+        <strong>Sheng-Jun Huang</strong>
+        <div class="meta">Professor, Nanjing University of Aeronautics and Astronautics</div>
+        <p>
+          Sheng-Jun Huang is a leading expert in active learning and robust
+          optimization. He has published 140+ papers with 6,900+ citations and an
+          h-index of 34 in IEEE TPAMI, TKDE, AAAI, and NeurIPS. He co-authored a
+          seminal TPAMI survey on open-set recognition and pioneered
+          query-efficient active learning and robust AUC maximization. He serves
+          on program committees for IJCAI, KDD, AAAI, and PRICAI, and regularly
+          co-organizes international workshops.
+        </p>
+      </div>
+    </section>
+
+    <section id="promotion">
+      <h2>Attendance and Promotion</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Expected Participants</h3>
+          <p>60–120 attendees.</p>
+        </div>
+        <div class="card">
+          <h3>Expected Submissions</h3>
+          <p>30–40 submitted papers.</p>
+        </div>
+        <div class="card">
+          <h3>Expected Accepted Papers</h3>
+          <p>6–8 accepted papers.</p>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Promotion Strategy</h3>
         <ul>
-          <li>Organizer 1, University / Institute</li>
-          <li>Organizer 2, University / Institute</li>
-          <li>Organizer 3, University / Institute</li>
+          <li>Dissemination through the official PRICAI 2026 website and newsletter.</li>
+          <li>Targeted outreach via ML/DL mailing lists, OpenReview, Reddit r/MachineLearning, WeChat academic communities, and LinkedIn groups.</li>
+          <li>Early-bird call for papers with clear submission guidelines.</li>
+          <li>Transparent dual-anonymized peer review and acceptance criteria.</li>
         </ul>
       </div>
     </section>
@@ -183,14 +498,20 @@
       <h2>Contact</h2>
       <p>
         For questions about the workshop, please contact:
-        <a href="mailto:your-email@example.com">your-email@example.com</a>
       </p>
+      <div class="card">
+        <p>
+          <strong>Shao-Yuan Li</strong><br />
+          Nanjing University of Aeronautics and Astronautics<br />
+          Email: <a href="mailto:lisy@nuaa.edu.cn">lisy@nuaa.edu.cn</a>
+        </p>
+      </div>
     </section>
   </main>
 
   <footer>
     <div class="container">
-      © 2026 PAICAI Workshop. Hosted on GitHub Pages.
+      © 2026 Workshop on Open-World Robust Machine Learning. Hosted on GitHub Pages.
     </div>
   </footer>
 </body>
